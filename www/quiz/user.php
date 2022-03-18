@@ -36,7 +36,7 @@
         }
         else
         {
-            echo "<center><h3><script>alert('Sorry.. Wrong Username (or) Password');</script></h3></center>";
+            echo "<center><h3><script>alert('Sorry.. Wrong Username or Password');</script></h3></center>";
             header("refresh:0;url=user.php");
         }
     }
@@ -62,7 +62,7 @@
                 }
           </style>
 	</head>
-
+    <!-- Build the user login page -->
 	<body>
 		<section class="login first grey">
 			<div class="container">

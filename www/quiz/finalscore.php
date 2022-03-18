@@ -8,7 +8,6 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Finished | WebbiSkools Ltd</title>
-        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
         <link  rel="stylesheet" href="css/bootstrap.min.css"/>
         <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
         <link rel="stylesheet" href="css/welcome.css">
@@ -17,7 +16,7 @@ session_start();
         <script src="js/bootstrap.min.js"  type="text/javascript"></script>
     </head>
     <body>
-
+        <!-- Build the final score page -->
         <nav class="navbar navbar-default title1">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -29,7 +28,6 @@ session_start();
                     </button>
                     <a class="navbar-brand" href="#"><b>Quiz System</b></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>

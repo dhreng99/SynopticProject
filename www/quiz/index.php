@@ -1,11 +1,9 @@
 <?php
   include 'db.php';
   session_start();
-
-  // var_dump($_GET);
-
   if(isset($_SESSION['key']))
   {
+      /* Queries to delete a question and all of its options */
       if(@$_GET['q'] == 'delquiz' && $_SESSION['key'] == 'admin') 
       {
           $question_number = @$_GET['question_number'];
@@ -20,7 +18,7 @@
           }
           header("location:delete.php");
       }
-
+      /* Query to delete an individual answer from a question */
       if(@$_GET['q'] == 'delans' && $_SESSION['key'] == 'admin') 
       {
           $id = @$_GET['id'];

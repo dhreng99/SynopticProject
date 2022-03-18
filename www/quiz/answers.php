@@ -2,21 +2,6 @@
 include 'db.php';
 session_start();
 $name = $_SESSION['name'];
-// $query = "SELECT question_text FROM questions";
-// $total_questions = mysqli_query( $connection, $query );
-// $number = $_GET[ 'n' ];
-
-// $query = "SELECT * FROM questions WHERE question_number = $number";
-
-// $result = mysqli_query( $connection, $query );
-// $question = mysqli_fetch_assoc( $result );
-
-// $query = "SELECT * FROM options WHERE question_number = $number";
-// $choices = mysqli_query( $connection, $query );
-
-// $query = "SELECT * FROM questions";
-// $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
-
 ?>
 <html>
     <head>
@@ -45,7 +30,6 @@ $name = $_SESSION['name'];
                     </button>
                     <a class="navbar-brand" href="#"><b>Quiz System</b></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>
@@ -58,10 +42,10 @@ $name = $_SESSION['name'];
         </nav>
 
         <main>
+        <!-- Build answers page -->
         <?php
         {
             $result = mysqli_query($connection, "SELECT * FROM options" ) or die('Error');
-            // $questions = mysqli_query($connection, "SELECT text FROM options" )or die('Error');
             echo   '<div class="panel">
                         <div class="table-responsive">
                             <table class="table table-striped title1">
@@ -93,6 +77,7 @@ $name = $_SESSION['name'];
                                     </td>    
                                 </tr>';
             $i=1;
+            /* Get necessary data for table and alter 1's and 0's to Yes and No */
             while($row = mysqli_fetch_array($result)) {
                 $question_number = $row['question_number'];
                 $answer = $row['text'];
@@ -125,6 +110,7 @@ $name = $_SESSION['name'];
                                         <center>
                                             <b>
                                             '?>
+                                            <!-- Only allow an Admin to delete answers -->
                                             <?php if( $name == "Admin" ){echo'
                                                 <a href="index.php?q=delans&id='.$id.'" class="pull-right btn sub1" style="margin:0px;background:red;color:black">
                                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -147,37 +133,6 @@ $name = $_SESSION['name'];
         }
         
         ?>
-         <!-- <button class="accordion">Section 1</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 2</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 3</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div> 
-
-            <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                panel.style.display = "none";
-                } else {
-                panel.style.display = "block";
-                }
-            });
-            }
-            </script>       -->
         </main>
     </body>
 </html>

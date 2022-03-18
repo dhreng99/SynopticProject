@@ -5,7 +5,7 @@ if( isset( $_POST[ 'submit' ] ) ){
     $question_number = $_POST[ 'question_number' ];
     $question_text = $_POST[ 'question_text' ];
     $correct_option = $_POST[ 'correct_option' ];
-    
+    /* Get each of the options and insert into array*/
     $option = array();
     $option[ 1 ] = $_POST[ 'option1' ];
     $option[ 2 ] = $_POST[ 'option2' ];
@@ -20,7 +20,7 @@ if( isset( $_POST[ 'submit' ] ) ){
     $query .= ")";
 
     $result = mysqli_query( $connection, $query );
-
+    /* Cycle through each option and insert into the table */
     if( $result ){
         foreach( $option as $select => $value ){
             if( $value != "" ){ 
@@ -60,7 +60,6 @@ $next = $total + 1;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Add Questions | WebbiSkools Ltd</title>
-        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
         <link  rel="stylesheet" href="css/bootstrap.min.css"/>
         <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
         <link rel="stylesheet" href="css/welcome.css">
@@ -81,7 +80,6 @@ $next = $total + 1;
                     </button>
                     <a class="navbar-brand" href="#"><b>Quiz System</b></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>
@@ -100,7 +98,7 @@ $next = $total + 1;
                 <?php if( isset( $message ) ){
                     echo "<h4>" . $message . "</h4>";
                 } ?>
-                <form class="form-horizontal title1" method="POST" action="add.php">
+                <form class="form-horizontal title1" method="POST" action="addquestion.php">
                     <fieldset>
                         <div class="form-group">
                             <div class="col-md-12">
@@ -152,6 +150,7 @@ $next = $total + 1;
                             <option value="4"> Option 4 </option>
                             <option value="5"> Option 5 </option>
                         </select>
+                        <!-- Only let an Admin add new question -->
                         <?php if( $name == "Admin" ){echo'
                         <div class="form-group">
                             <label class="col-md-12 control-label" for=""></label>

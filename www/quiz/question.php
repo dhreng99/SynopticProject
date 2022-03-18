@@ -23,7 +23,6 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Questions | WebbiSkools Ltd</title>
-        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
         <link  rel="stylesheet" href="css/bootstrap.min.css"/>
         <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
         <link rel="stylesheet" href="css/welcome.css">
@@ -44,7 +43,6 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
                     </button>
                     <a class="navbar-brand" href="#"><b>Quiz System</b></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>
@@ -55,7 +53,7 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
                 </div>
             </div>
         </nav>
-
+        <!-- Build the questions page -->
         <main>
             <div class="panel">
                 <div class="container"></br>
@@ -68,9 +66,7 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
                             <?php } ?>   
                         </ol></br>
                         <input type="hidden" name="number" value="<?php echo $number; ?>">
-                        <?php if( $name == "Admin" ){echo'
                         <input class="btn btn-primary" role="button" type="submit" name="submit" value="Submit">
-                        ';}?>    
                     </form>
                 <div>
             </div>    

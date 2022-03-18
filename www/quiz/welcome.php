@@ -18,6 +18,7 @@
             }
         </style>
     </head>
+    <!-- Build the welcome page allowing a user to login -->
     <body>
         <center>
             <div class="intro">

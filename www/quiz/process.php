@@ -4,6 +4,7 @@
     if( !isset( $_SESSION[ 'score' ] ) ){
         $_SESSION[ 'score' ] = 0;
     }
+    /* Run queries to check users answers to get the final score */
     if ( $_POST ){
         $query = "SELECT * FROM questions";
         $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
@@ -25,7 +26,7 @@
         }
 
         if( $number == $total_questions ){
-            header( "LOCATION: final.php" );
+            header( "LOCATION: finalscore.php" );
         } else {
             header( "LOCATION: question.php?n=". $next );
         }

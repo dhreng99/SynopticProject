@@ -5,7 +5,6 @@
 	{
 		session_destroy();
     }
-    $ref=@$_GET['q'];
     if(isset($_POST['submit']))
 	{	
         $email = $_POST['email'];
@@ -35,11 +34,12 @@
         }
         else
         {
-            echo "<center><h3><script>alert('Sorry.. Wrong Username (or) Password');</script></h3></center>";
+            echo "<center><h3><script>alert('Sorry.. Wrong Username or Password');</script></h3></center>";
             header("refresh:0;url=admin.php");
         }
     }
 ?>
+<!-- Build admin login page -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -88,7 +88,6 @@
 				</div>
 			</div>
 		</section>
-
 		<script src="js/jquery.js"></script>
 		<script src="scripts/bootstrap/bootstrap.min.js"></script>
 	</body>

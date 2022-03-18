@@ -9,7 +9,6 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Take Quiz | WebbiSkools Ltd</title>
-        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
         <link  rel="stylesheet" href="css/bootstrap.min.css"/>
         <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
         <link rel="stylesheet" href="css/welcome.css">
@@ -18,7 +17,7 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
         <script src="js/bootstrap.min.js"  type="text/javascript"></script>
     </head>    
     <body>
-
+    <!-- Build the page to start a quiz -->
     <nav class="navbar navbar-default title1">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -30,7 +29,6 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
                     </button>
                     <a class="navbar-brand" href="#"><b>Quiz System</b></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>
@@ -44,8 +42,6 @@ $total_questions = mysqli_num_rows( mysqli_query( $connection, $query ) );
     
         <main>
         <div class="panel">
-                    <!-- <table class="table table-striped title1" >
-                    <tr style="color:red"><td><center><b>Rank</b></center></td><td><center><b>Name</b></center></td><td><center><b>Score</b></center></td></tr> -->
             <div class="container">
                 <h2>Take the Quiz</h2>
                 <hr>
